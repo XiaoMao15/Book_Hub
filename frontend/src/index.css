@@ -67,3 +67,20 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 #root > main { flex: 1; }
+
+/* kotak pesan (berhasil / gagal), dipakai di banyak halaman */
+.alert {
+  margin-bottom: 1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  animation: rise 0.4s var(--ease) both;
+}
+
+.alert--error { background: #f8e3dd; color: #8f3524; }
+.alert--success { background: #e5eedb; color: #3f5e2a; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}

@@ -6,6 +6,7 @@ import Books from './pages/Books';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Placeholder from './pages/Placeholder';
+import BookDetail from './pages/BookDetail';
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/cart" element={<Placeholder title="Keranjang" />} />
+        <Route path="/books/:id" element={<BookDetail />} />
       </Route>
     </Routes>
   );

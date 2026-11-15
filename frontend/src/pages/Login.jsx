@@ -22,7 +22,7 @@ export default function Login() {
     setMessage('');
     try {
       await login(form.email, form.password);
-      navigate('/');
+      navigate(location.state?.from || '/');
     } catch (err) {
       setErrors(err.response?.data?.errors || {});
       setMessage(err.response?.data?.message || 'Tidak dapat terhubung ke server');

@@ -65,17 +65,6 @@
 .field--error input { border-color: #c0533e; }
 .field__error { color: #c0533e; font-size: 0.8rem; }
 
-.alert {
-  margin-bottom: 1rem;
-  padding: 0.7rem 1rem;
-  border-radius: 10px;
-  font-size: 0.9rem;
-  animation: rise 0.4s var(--ease) both;
-}
-
-.alert--error { background: #f8e3dd; color: #8f3524; }
-.alert--success { background: #e5eedb; color: #3f5e2a; }
-
 .auth__submit { width: 100%; margin-top: 0.5rem; padding: 0.8rem; font-size: 1rem; }
 .auth__submit:disabled { opacity: 0.6; cursor: wait; }
 
