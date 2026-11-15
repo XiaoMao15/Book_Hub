@@ -1,13 +1,15 @@
 <?php
 
+use App\Http\Controllers\Api\AdminOrderController;
+use App\Http\Controllers\Api\AdminUserController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BookController;
 use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\GenreController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\OrderController;
-use App\Http\Controllers\Api\AdminUserController;
-use App\Http\Controllers\Api\AdminOrderController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\AdminMessageController;
 
 // ===== Publik (tanpa login) =====
 Route::post('/register', [AuthController::class, 'register']);
@@ -15,6 +17,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/genres', [GenreController::class, 'index']);
 Route::get('/books', [BookController::class, 'index']);
 Route::get('/books/{book}', [BookController::class, 'show']);
+Route::post('/messages', [MessageController::class, 'store']);
 
 // ===== Wajib login (token Sanctum) =====
 Route::middleware('auth:sanctum')->group(function () {
@@ -29,10 +32,14 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/books', [BookController::class, 'store']);
         Route::put('/books/{book}', [BookController::class, 'update']);
         Route::delete('/books/{book}', [BookController::class, 'destroy']);
+
         Route::get('/admin/users', [AdminUserController::class, 'index']);
         Route::get('/admin/orders', [AdminOrderController::class, 'index']);
         Route::get('/admin/orders/{id}', [AdminOrderController::class, 'show']);
         Route::put('/admin/orders/{id}', [AdminOrderController::class, 'update']);
+        Route::get('/admin/messages', [AdminMessageController::class, 'index']);
+        Route::get('/admin/messages/{id}', [AdminMessageController::class, 'show']);
+        Route::put('/admin/messages/{id}/read', [AdminMessageController::class, 'markRead']);
     });
 
     // ===== Khusus customer =====
@@ -41,6 +48,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/cart', [CartController::class, 'store']);
         Route::put('/cart/{id}', [CartController::class, 'update']);
         Route::delete('/cart/{id}', [CartController::class, 'destroy']);
+
         Route::post('/orders', [OrderController::class, 'store']);
         Route::get('/orders', [OrderController::class, 'index']);
         Route::get('/orders/{id}', [OrderController::class, 'show']);

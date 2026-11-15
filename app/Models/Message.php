@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /** Fungsi: model tabel messages; pesan dari form Contact Us. */
 class Message extends Model
 {
-    protected $fillable = ['name', 'email', 'message'];
+    protected $fillable = ['name', 'email', 'message', 'is_read'];
+
+    protected $casts = ['is_read' => 'boolean'];
 }
