@@ -1,6 +1,7 @@
-// Fungsi: kerangka halaman (navbar di atas, isi halaman di tengah)
+// Fungsi: kerangka halaman (navbar, isi halaman, footer)
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export default function MainLayout() {
   return (
@@ -9,6 +10,7 @@ export default function MainLayout() {
       <main className="container page">
         <Outlet />
       </main>
+      <Footer />
     </>
   );
 }

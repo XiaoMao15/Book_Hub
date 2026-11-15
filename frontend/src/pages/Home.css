@@ -144,3 +144,70 @@
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   gap: 1.5rem;
 }
+/* pill genre */
+.genre-pills { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+
+.genre-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.genre-pill.show { transition: transform 0.3s var(--ease), background 0.3s, color 0.3s, box-shadow 0.3s; }
+
+.genre-pill:hover {
+  transform: translateY(-4px);
+  background: var(--sand-dark);
+  color: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.genre-pill span {
+  padding: 0.05rem 0.55rem;
+  border-radius: 999px;
+  background: var(--cream);
+  color: var(--sand-dark);
+  font-size: 0.75rem;
+}
+
+/* kotak ajakan */
+.cta {
+  position: relative;
+  overflow: hidden;
+  padding: 3.5rem 2rem;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--sand-dark), #5e5845);
+  color: var(--white);
+  text-align: center;
+}
+
+.cta::before,
+.cta::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  animation: float 9s ease-in-out infinite;
+}
+
+.cta::before { --r: 0deg; width: 260px; height: 260px; top: -90px; left: -70px; }
+.cta::after { --r: 0deg; width: 200px; height: 200px; bottom: -80px; right: -50px; animation-delay: -4s; }
+
+.cta h2 { position: relative; margin-bottom: 0.6rem; font-size: clamp(1.5rem, 3vw, 2.1rem); }
+.cta p { position: relative; max-width: 48ch; margin: 0 auto 1.6rem; opacity: 0.85; }
+
+.cta__btn {
+  position: relative;
+  padding: 0.8rem 2rem;
+  background: var(--white);
+  color: var(--ink);
+}
+
+.cta__btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25); }
