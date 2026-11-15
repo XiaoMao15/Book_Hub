@@ -5,7 +5,7 @@ use App\Http\Controllers\Api\BookController;
 use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\GenreController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Api\OrderController;
 
 // ===== Publik (tanpa login) =====
 Route::post('/register', [AuthController::class, 'register']);
@@ -35,5 +35,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/cart', [CartController::class, 'store']);
         Route::put('/cart/{id}', [CartController::class, 'update']);
         Route::delete('/cart/{id}', [CartController::class, 'destroy']);
+        Route::post('/orders', [OrderController::class, 'store']);
+        Route::get('/orders', [OrderController::class, 'index']);
+        Route::get('/orders/{id}', [OrderController::class, 'show']);
     });
 });
