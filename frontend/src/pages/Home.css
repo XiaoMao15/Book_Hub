@@ -1,4 +1,4 @@
-/* Fungsi: gaya halaman Home (hero, cover mengambang, penanda gulir) */
+/* Fungsi: gaya halaman Home (hero, cover mengambang, penanda gulir, genre, CTA) */
 .hero {
   position: relative;
   min-height: calc(100vh - 150px);
@@ -128,7 +128,7 @@
   .hero__cover { width: 140px; }
 }
 
-/* kepala section & grid kartu */
+/* kepala section */
 .section__head {
   display: flex;
   justify-content: space-between;
@@ -139,11 +139,6 @@
 .section__link { color: var(--sand-dark); font-weight: 600; text-decoration: none; transition: color 0.3s; }
 .section__link:hover { color: var(--ink); }
 
-.book-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  gap: 1.5rem;
-}
 /* pill genre */
 .genre-pills { display: flex; flex-wrap: wrap; gap: 0.8rem; }
 

@@ -69,3 +69,10 @@
 
 .book-card__author { color: var(--ink-soft); font-size: 0.85rem; }
 .book-card__price { margin-top: auto; padding-top: 0.5rem; font-weight: 700; }
+
+/* grid pembungkus kartu buku (Home & halaman Buku) */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1.5rem;
+}
