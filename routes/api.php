@@ -6,6 +6,8 @@ use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\GenreController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\AdminUserController;
+use App\Http\Controllers\Api\AdminOrderController;
 
 // ===== Publik (tanpa login) =====
 Route::post('/register', [AuthController::class, 'register']);
@@ -27,6 +29,10 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/books', [BookController::class, 'store']);
         Route::put('/books/{book}', [BookController::class, 'update']);
         Route::delete('/books/{book}', [BookController::class, 'destroy']);
+        Route::get('/admin/users', [AdminUserController::class, 'index']);
+        Route::get('/admin/orders', [AdminOrderController::class, 'index']);
+        Route::get('/admin/orders/{id}', [AdminOrderController::class, 'show']);
+        Route::put('/admin/orders/{id}', [AdminOrderController::class, 'update']);
     });
 
     // ===== Khusus customer =====
