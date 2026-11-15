@@ -1,4 +1,4 @@
-/* Fungsi: gaya navbar menempel di atas (lebar penuh, sudut bawah melengkung), garis bawah animasi pada menu */
+/* Fungsi: gaya navbar menempel di atas, garis bawah animasi pada menu, ikon keranjang, avatar dan dropdown user */
 .navbar {
   position: sticky;
   top: 0;
@@ -93,6 +93,84 @@
   transform: translateY(-2px);
 }
 
+/* menu user (avatar + dropdown) */
+.navbar__user { position: relative; }
+
+.navbar__avatar-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.7rem 0.3rem 0.3rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  font: inherit;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.navbar__avatar-btn:hover { background: var(--cream); }
+
+.navbar__avatar {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--sand-dark);
+  color: var(--white);
+  font-weight: 700;
+}
+
+.navbar__name { font-weight: 600; font-size: 0.95rem; }
+.navbar__chevron { transition: transform 0.3s var(--ease); }
+.navbar__chevron.is-open { transform: rotate(180deg); }
+
+.navbar__dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 190px;
+  padding: 0.5rem;
+  border-radius: 14px;
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  animation: rise 0.25s var(--ease) both;
+}
+
+.navbar__role {
+  padding: 0.3rem 0.8rem 0.5rem;
+  border-bottom: 1px solid var(--cream);
+  margin-bottom: 0.3rem;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.navbar__dropdown a,
+.navbar__dropdown button {
+  padding: 0.6rem 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.navbar__dropdown a:hover,
+.navbar__dropdown button:hover { background: var(--cream); }
+.navbar__dropdown button { color: #a6432f; }
+
 @media (max-width: 760px) {
   .navbar__links { display: none; }
+  .navbar__name { display: none; }
 }

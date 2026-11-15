@@ -1,0 +1,88 @@
+/* Fungsi: gaya halaman Login & Register (kartu dua sisi, input, pesan error) */
+.auth {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 920px;
+  min-height: 560px;
+  margin: 1rem auto;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  animation: rise 0.7s var(--ease) both;
+}
+
+.auth__side {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--sand-dark), #4f4a3a);
+  color: var(--white);
+}
+
+.auth__side::before,
+.auth__side::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  animation: float 8s ease-in-out infinite;
+}
+
+.auth__side::before { --r: 0deg; width: 280px; height: 280px; top: -80px; right: -90px; }
+.auth__side::after { --r: 0deg; width: 160px; height: 160px; top: 40%; left: -60px; animation-delay: -3s; }
+
+.auth__side blockquote { position: relative; font-size: 1.35rem; font-weight: 600; line-height: 1.4; }
+.auth__side cite { position: relative; display: block; margin-top: 0.8rem; font-style: normal; opacity: 0.75; font-size: 0.9rem; }
+
+.auth__form { display: flex; flex-direction: column; justify-content: center; padding: 2.5rem; }
+.auth__form h1 { font-size: 1.8rem; }
+.auth__sub { margin-bottom: 1.5rem; color: var(--ink-soft); }
+
+.field { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
+.field label { font-size: 0.85rem; font-weight: 600; }
+
+.field input {
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--cream);
+  border-radius: 10px;
+  background: #faf8f3;
+  font: inherit;
+  color: var(--ink);
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--sand-dark);
+  background: var(--white);
+  box-shadow: 0 0 0 4px rgba(138, 130, 105, 0.15);
+}
+
+.field--error input { border-color: #c0533e; }
+.field__error { color: #c0533e; font-size: 0.8rem; }
+
+.alert {
+  margin-bottom: 1rem;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  animation: rise 0.4s var(--ease) both;
+}
+
+.alert--error { background: #f8e3dd; color: #8f3524; }
+.alert--success { background: #e5eedb; color: #3f5e2a; }
+
+.auth__submit { width: 100%; margin-top: 0.5rem; padding: 0.8rem; font-size: 1rem; }
+.auth__submit:disabled { opacity: 0.6; cursor: wait; }
+
+.auth__switch { margin-top: 1.2rem; color: var(--ink-soft); font-size: 0.9rem; text-align: center; }
+.auth__switch a { color: var(--sand-dark); font-weight: 600; }
+
+@media (max-width: 760px) {
+  .auth { grid-template-columns: 1fr; }
+  .auth__side { display: none; }
+}

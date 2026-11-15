@@ -58,3 +58,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
 .reveal.show { opacity: 1; transform: none; }
 .page { padding-block: 2rem 4rem; }
+
+/* footer selalu di dasar layar walau isi halaman pendek */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#root > main { flex: 1; }

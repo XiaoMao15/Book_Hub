@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import Home from './pages/Home';
 import Books from './pages/Books';
+import Login from './pages/Login';
+import Register from './pages/Register';
 import Placeholder from './pages/Placeholder';
 
 export default function App() {
@@ -11,10 +13,9 @@ export default function App() {
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/books" element={<Books />} />
-        <Route path="/genres" element={<Placeholder title="Genre" />} />
         <Route path="/contact" element={<Placeholder title="Contact Us" />} />
-        <Route path="/login" element={<Placeholder title="Login" />} />
-        <Route path="/register" element={<Placeholder title="Sign Up" />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/cart" element={<Placeholder title="Keranjang" />} />
       </Route>
     </Routes>
