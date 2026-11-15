@@ -1,28 +1,21 @@
-// Fungsi: halaman uji koneksi, menampilkan daftar buku dari API Laravel
-import { useEffect, useState } from 'react';
-import api from './services/api';
+// Fungsi: peta rute aplikasi (alamat URL menuju halaman)
+import { Routes, Route } from 'react-router-dom';
+import MainLayout from './layouts/MainLayout';
+import Books from './pages/Books';
+import Placeholder from './pages/Placeholder';
 
-function App() {
-  const [books, setBooks] = useState([]);
-  const [error, setError] = useState('');
-
-  useEffect(() => {
-    api.get('/books')
-      .then((res) => setBooks(res.data))
-      .catch(() => setError('Gagal terhubung ke API'));
-  }, []);
-
+export default function App() {
   return (
-    <div>
-      <h1>Book.Hub</h1>
-      {error && <p>{error}</p>}
-      <ul>
-        {books.map((b) => (
-          <li key={b.id}>{b.title} - {b.author}</li>
-        ))}
-      </ul>
-    </div>
+    <Routes>
+      <Route element={<MainLayout />}>
+        <Route path="/" element={<Placeholder title="Home" />} />
+        <Route path="/books" element={<Books />} />
+        <Route path="/genres" element={<Placeholder title="Genre" />} />
+        <Route path="/contact" element={<Placeholder title="Contact Us" />} />
+        <Route path="/login" element={<Placeholder title="Login" />} />
+        <Route path="/register" element={<Placeholder title="Sign Up" />} />
+        <Route path="/cart" element={<Placeholder title="Keranjang" />} />
+      </Route>
+    </Routes>
   );
 }
-
-export default App;
