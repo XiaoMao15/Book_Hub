@@ -144,3 +144,38 @@
 /* teks tabel tidak terpotong; tabel bisa digeser kalau layar sempit */
 .adm-card { overflow-x: auto; }
 .adm-table td { white-space: nowrap; }
+
+/* tombol tambahan admin */
+.btn-danger { background: #a6432f; color: var(--white); }
+.btn-danger:hover { background: #8a3524; }
+.btn:disabled { opacity: 0.6; cursor: wait; transform: none; }
+
+.adm-actions { display: flex; gap: 0.4rem; justify-content: flex-end; }
+
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  color: var(--ink-soft);
+  transition: background 0.2s, color 0.2s, transform 0.2s var(--ease);
+}
+
+.icon-btn:hover { background: var(--cream); color: var(--ink); transform: translateY(-2px); }
+.icon-btn--danger:hover { background: #f8e3dd; color: #a6432f; }
+
+.count-pill {
+  display: inline-block;
+  min-width: 28px;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background: var(--cream);
+  color: var(--sand-dark);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.confirm-text { color: var(--ink-soft); }
+.confirm-text strong { color: var(--ink); }
