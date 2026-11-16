@@ -21,8 +21,8 @@ export default function Login() {
     setErrors({});
     setMessage('');
     try {
-      await login(form.email, form.password);
-      navigate(location.state?.from || '/');
+      const loggedIn = await login(form.email, form.password);
+      navigate(location.state?.from || (loggedIn.role === 'admin' ? '/admin' : '/'));
     } catch (err) {
       setErrors(err.response?.data?.errors || {});
       setMessage(err.response?.data?.message || 'Tidak dapat terhubung ke server');

@@ -1,16 +1,18 @@
-// Fungsi: peta rute aplikasi (alamat URL menuju halaman)
+// Fungsi: peta rute aplikasi (alamat URL menuju halaman), sisi toko dan panel admin
 import { Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
+import AdminLayout from './layouts/AdminLayout';
 import Home from './pages/Home';
 import Books from './pages/Books';
 import BookDetail from './pages/BookDetail';
+import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Cart from './pages/Cart';
-import Placeholder from './pages/Placeholder';
-import ProtectedRoute from './components/ProtectedRoute';
 import Orders from './pages/Orders';
-import Contact from './pages/Contact';
+import Placeholder from './pages/Placeholder';
+import Dashboard from './pages/admin/Dashboard';
+import ProtectedRoute from './components/ProtectedRoute';
 
 export default function App() {
   return (
@@ -38,6 +40,22 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+      </Route>
+
+      <Route
+        path="/admin"
+        element={
+          <ProtectedRoute role="admin">
+            <AdminLayout />
+          </ProtectedRoute>
+        }
+      >
+        <Route index element={<Dashboard />} />
+        <Route path="orders" element={<Placeholder title="Kelola Pesanan" />} />
+        <Route path="books" element={<Placeholder title="Kelola Buku" />} />
+        <Route path="genres" element={<Placeholder title="Kelola Genre" />} />
+        <Route path="users" element={<Placeholder title="Daftar User" />} />
+        <Route path="messages" element={<Placeholder title="Pesan Masuk" />} />
       </Route>
     </Routes>
   );

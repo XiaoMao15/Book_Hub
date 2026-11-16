@@ -1,0 +1,146 @@
+/* Fungsi: gaya panel admin (sidebar, topbar, kartu, tabel) dipakai semua halaman admin */
+.admin {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+  background: var(--cream);
+}
+
+/* sidebar */
+.admin__side {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 1.5rem 1rem;
+  background: var(--ink);
+  color: #d8d2c2;
+}
+
+.admin__brand { display: flex; align-items: center; gap: 0.7rem; margin: 0 0.5rem 2rem; color: var(--white); }
+.admin__brand img { width: 40px; }
+.admin__brand span { display: block; font-weight: 700; font-size: 1.1rem; }
+.admin__brand small { color: var(--sand); font-size: 0.75rem; }
+
+.admin__menu { display: flex; flex-direction: column; gap: 0.3rem; }
+
+.admin__menu a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.25s, color 0.25s, transform 0.25s var(--ease);
+}
+
+.admin__menu a:hover { background: rgba(255, 255, 255, 0.06); color: var(--white); transform: translateX(4px); }
+
+.admin__menu a.active {
+  background: var(--sand-dark);
+  color: var(--white);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.admin__foot { display: flex; flex-direction: column; gap: 0.4rem; margin-top: auto; }
+
+.admin__foot a,
+.admin__foot button {
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  text-align: left;
+  color: #d8d2c2;
+  transition: background 0.25s, color 0.25s;
+}
+
+.admin__foot a:hover { background: rgba(255, 255, 255, 0.06); color: var(--white); }
+.admin__foot button:hover { background: rgba(166, 67, 47, 0.25); color: #f3b5a6; }
+
+/* area kanan */
+.admin__main { display: flex; flex-direction: column; min-width: 0; }
+
+.admin__top {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+}
+
+.admin__top p { color: var(--ink-soft); }
+
+.admin__avatar {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--sand-dark);
+  color: var(--white);
+  font-weight: 700;
+}
+
+.admin__content { padding: 0 2rem 3rem; }
+
+/* judul halaman admin */
+.adm-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  animation: rise 0.5s var(--ease) both;
+}
+
+.adm-head h1 { font-size: 1.8rem; }
+.adm-head p { color: var(--ink-soft); }
+
+/* kartu putih umum */
+.adm-card {
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  animation: rise 0.5s var(--ease) both;
+}
+
+.adm-card h2 { margin-bottom: 1rem; font-size: 1.1rem; }
+
+/* tabel */
+.adm-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+
+.adm-table th {
+  padding: 0.7rem 0.8rem;
+  border-bottom: 1.5px solid var(--cream);
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.adm-table td { padding: 0.8rem; border-bottom: 1px solid #f3eee2; vertical-align: middle; }
+.adm-table tbody tr { transition: background 0.2s; }
+.adm-table tbody tr:hover { background: #faf8f3; }
+.adm-table .num { text-align: right; white-space: nowrap; }
+.adm-empty { padding: 2rem; color: var(--ink-soft); text-align: center; }
+
+@media (max-width: 900px) {
+  .admin { grid-template-columns: 1fr; }
+  .admin__side { position: static; height: auto; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 1rem; }
+  .admin__brand { margin: 0; }
+  .admin__menu { flex-direction: row; overflow-x: auto; width: 100%; order: 3; }
+  .admin__menu a { white-space: nowrap; }
+  .admin__foot { flex-direction: row; margin: 0 0 0 auto; }
+  .admin__content { padding: 0 1rem 2rem; }
+}   
+
+/* teks tabel tidak terpotong; tabel bisa digeser kalau layar sempit */
+.adm-card { overflow-x: auto; }
+.adm-table td { white-space: nowrap; }
