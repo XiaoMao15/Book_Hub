@@ -10,7 +10,7 @@ const rupiah = (n) =>
 
 export default function BookDetail() {
   const { id } = useParams();
-  const { user } = useAuth();
+  const { user, refreshCart } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const [book, setBook] = useState(null);
@@ -34,6 +34,7 @@ export default function BookDetail() {
     setNotice(null);
     try {
     await api.post('/cart', { book_id: book.id, qty });
+    refreshCart();
       setNotice({ type: 'success', text: `${qty} buku ditambahkan ke keranjang` });
     } catch (err) {
       setNotice({ type: 'error', text: err.response?.data?.message || 'Gagal menambahkan ke keranjang' });

@@ -6,7 +6,7 @@ import logo from '../assets/logo.png';
 import './Navbar.css';
 
 export default function Navbar() {
-  const { user, logout } = useAuth();
+  const { user, logout, cartCount } = useAuth();
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -62,6 +62,7 @@ export default function Navbar() {
                 <circle cx="18" cy="20" r="1.4" />
                 <path d="M2 3h3l2.6 12.2a1.5 1.5 0 0 0 1.5 1.2h8.4a1.5 1.5 0 0 0 1.5-1.1L21 8H6" />
               </svg>
+              {cartCount > 0 && <span key={cartCount} className="navbar__badge">{cartCount}</span>}
             </Link>
           )}
 

@@ -1,5 +1,5 @@
-// Fungsi: menyimpan status login (user + token) dan menyediakan login, register, logout ke seluruh aplikasi
-import { createContext, useContext, useState } from 'react';
+// Fungsi: menyimpan status login (user + token) dan jumlah item keranjang; menyediakan login, register, logout
+import { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import api from '../services/api';
 
 const AuthContext = createContext(null);
@@ -9,6 +9,21 @@ export function AuthProvider({ children }) {
     const saved = localStorage.getItem('user');
     return saved ? JSON.parse(saved) : null;
   });
+  const [cartCount, setCartCount] = useState(0);
+
+  const refreshCart = useCallback(() => {
+    if (user?.role !== 'customer') {
+      setCartCount(0);
+      return;
+    }
+    api.get('/cart')
+      .then((res) => setCartCount(res.data.items.reduce((sum, i) => sum + i.qty, 0)))
+      .catch(() => setCartCount(0));
+  }, [user]);
+
+  useEffect(() => {
+    refreshCart();
+  }, [refreshCart]);
 
   const login = async (email, password) => {
     const res = await api.post('/login', { email, password });
@@ -31,7 +46,7 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, register, logout }}>
+    <AuthContext.Provider value={{ user, login, register, logout, cartCount, refreshCart }}>
       {children}
     </AuthContext.Provider>
   );

@@ -174,3 +174,29 @@
   .navbar__links { display: none; }
   .navbar__name { display: none; }
 }
+
+/* angka jumlah item di ikon keranjang */
+.navbar__cart { position: relative; }
+
+.navbar__badge {
+  position: absolute;
+  top: 0;
+  right: -2px;
+  display: grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding-inline: 4px;
+  border-radius: 999px;
+  background: #a6432f;
+  color: var(--white);
+  font-size: 0.68rem;
+  font-weight: 700;
+  animation: bump 0.4s var(--ease);
+}
+
+@keyframes bump {
+  0% { transform: scale(0.4); }
+  60% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}

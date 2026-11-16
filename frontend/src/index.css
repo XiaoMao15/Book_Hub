@@ -84,3 +84,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: none; }
 }
+
+@keyframes float {
+  0%, 100% { transform: rotate(var(--r, 0deg)) translateY(0); }
+  50% { transform: rotate(var(--r, 0deg)) translateY(-14px); }
+}
