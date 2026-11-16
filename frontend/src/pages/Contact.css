@@ -1,0 +1,123 @@
+/* Fungsi: gaya halaman Contact Us (panel info bergradasi, kartu form, animasi centang sukses) */
+.contact__head { margin-bottom: 2rem; animation: rise 0.6s var(--ease) both; }
+.contact__head h1 { font-size: 2rem; }
+.contact__head p { color: var(--ink-soft); }
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  animation: rise 0.7s var(--ease) 0.1s both;
+}
+
+/* panel info */
+.contact__info {
+  position: relative;
+  overflow: hidden;
+  padding: 2.5rem;
+  background: linear-gradient(160deg, var(--sand-dark), #4f4a3a);
+  color: var(--white);
+}
+
+.contact__info::before,
+.contact__info::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  animation: float 8s ease-in-out infinite;
+}
+
+.contact__info::before { --r: 0deg; width: 260px; height: 260px; bottom: -100px; right: -80px; }
+.contact__info::after { --r: 0deg; width: 140px; height: 140px; top: -40px; right: 30%; animation-delay: -3s; }
+
+.contact__info h2 { position: relative; margin-bottom: 1.5rem; font-size: 1.3rem; }
+.contact__info ul { position: relative; display: flex; flex-direction: column; gap: 1.2rem; }
+
+.contact__info li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: rise 0.6s var(--ease) both;
+}
+
+.contact__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 1.2rem;
+  transition: transform 0.3s var(--ease), background 0.3s;
+}
+
+.contact__info li:hover .contact__icon { transform: scale(1.1) rotate(-6deg); background: rgba(255, 255, 255, 0.24); }
+.contact__info small { opacity: 0.7; font-size: 0.78rem; }
+.contact__info p { font-weight: 500; }
+
+/* kartu form */
+.contact__card { padding: 2.5rem; }
+.contact__card h2 { margin-bottom: 1.2rem; font-size: 1.3rem; }
+
+.contact__card textarea {
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--cream);
+  border-radius: 10px;
+  background: #faf8f3;
+  font: inherit;
+  color: var(--ink);
+  resize: vertical;
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.contact__card textarea:focus {
+  outline: none;
+  border-color: var(--sand-dark);
+  background: var(--white);
+  box-shadow: 0 0 0 4px rgba(138, 130, 105, 0.15);
+}
+
+.contact__card .field--error textarea { border-color: #c0533e; }
+
+.contact__submit { padding: 0.8rem 2rem; font-size: 1rem; }
+.contact__submit:disabled { opacity: 0.6; cursor: wait; }
+
+/* tampilan sukses */
+.contact__success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+  text-align: center;
+  animation: rise 0.5s var(--ease) both;
+}
+
+.contact__success p { max-width: 36ch; margin: 0.4rem 0 1.5rem; color: var(--ink-soft); }
+
+.contact__check {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 1rem;
+  fill: none;
+  stroke: #4f7a35;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact__check circle { stroke-dasharray: 151; stroke-dashoffset: 151; animation: draw 0.6s ease-out forwards; }
+.contact__check path { stroke-dasharray: 36; stroke-dashoffset: 36; animation: draw 0.4s 0.5s ease-out forwards; }
+
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+@media (max-width: 860px) {
+  .contact__grid { grid-template-columns: 1fr; }
+  .contact__info,
+  .contact__card { padding: 1.8rem; }
+}
