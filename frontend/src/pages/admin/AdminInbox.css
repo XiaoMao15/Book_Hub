@@ -1,0 +1,91 @@
+/* Fungsi: gaya admin user (avatar, badge role) dan kotak pesan (daftar + isi pesan) */
+.user-cell { display: flex; align-items: center; gap: 0.8rem; }
+.user-cell strong { display: block; }
+.user-cell small { color: var(--ink-soft); }
+
+.user-cell__avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: var(--white);
+  font-weight: 700;
+}
+
+.user-cell__avatar--customer { background: var(--sand-dark); }
+.user-cell__avatar--admin { background: var(--ink); }
+
+.role { padding: 0.2rem 0.7rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600; }
+.role--customer { background: #e5eedb; color: #3f5e2a; }
+.role--admin { background: var(--ink); color: var(--white); }
+
+/* kotak pesan */
+.inbox { display: grid; grid-template-columns: 360px 1fr; gap: 1.2rem; align-items: start; }
+
+.inbox__list { display: flex; flex-direction: column; gap: 0.3rem; max-height: 70vh; overflow-y: auto; padding: 0.6rem; }
+
+.inbox__item {
+  position: relative;
+  width: 100%;
+  padding: 0.9rem 1rem 0.9rem 1.4rem;
+  border-radius: 12px;
+  text-align: left;
+  color: var(--ink);
+  transition: background 0.2s;
+}
+
+.inbox__item:hover { background: #faf8f3; }
+.inbox__item.is-active { background: var(--cream); }
+
+.inbox__item.is-unread::before {
+  content: '';
+  position: absolute;
+  top: 1.25rem;
+  left: 0.5rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #a6432f;
+  animation: bump 0.4s var(--ease);
+}
+
+.inbox__top { display: flex; justify-content: space-between; gap: 0.5rem; }
+.inbox__top small { color: var(--ink-soft); font-size: 0.75rem; white-space: nowrap; }
+.inbox__item p { overflow: hidden; color: var(--ink-soft); font-size: 0.88rem; white-space: nowrap; text-overflow: ellipsis; }
+.inbox__item.is-unread strong,
+.inbox__item.is-unread p { color: var(--ink); font-weight: 600; }
+
+.inbox__view { min-height: 320px; }
+
+.inbox__placeholder {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.5rem;
+  min-height: 280px;
+  color: var(--ink-soft);
+}
+
+.inbox__placeholder span { font-size: 2.5rem; animation: float 4s ease-in-out infinite; --r: 0deg; }
+
+.inbox__detail { animation: rise 0.4s var(--ease) both; }
+.inbox__from { display: flex; align-items: center; gap: 0.8rem; }
+.inbox__from strong { display: block; }
+.inbox__from small { color: var(--ink-soft); }
+.inbox__read { margin-left: auto; color: #4f7a35; font-size: 0.8rem; font-weight: 600; }
+.inbox__date { display: block; margin: 0.8rem 0 1rem; color: var(--ink-soft); }
+
+.inbox__body {
+  margin-bottom: 1.5rem;
+  padding: 1.2rem;
+  border-radius: 12px;
+  background: #faf8f3;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 1000px) {
+  .inbox { grid-template-columns: 1fr; }
+}

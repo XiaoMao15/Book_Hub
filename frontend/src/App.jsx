@@ -10,13 +10,13 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Cart from './pages/Cart';
 import Orders from './pages/Orders';
-import Placeholder from './pages/Placeholder';
 import Dashboard from './pages/admin/Dashboard';
+import AdminOrders from './pages/admin/AdminOrders';
 import AdminBooks from './pages/admin/AdminBooks';
 import Genres from './pages/admin/Genres';
-import AdminOrders from './pages/admin/AdminOrders';
+import AdminUsers from './pages/admin/AdminUsers';
+import AdminMessages from './pages/admin/AdminMessages';
 import ProtectedRoute from './components/ProtectedRoute';
-
 
 export default function App() {
   return (
@@ -58,8 +58,8 @@ export default function App() {
         <Route path="orders" element={<AdminOrders />} />
         <Route path="books" element={<AdminBooks />} />
         <Route path="genres" element={<Genres />} />
-        <Route path="users" element={<Placeholder title="Daftar User" />} />
-        <Route path="messages" element={<Placeholder title="Pesan Masuk" />} />
+        <Route path="users" element={<AdminUsers />} />
+        <Route path="messages" element={<AdminMessages />} />
       </Route>
     </Routes>
   );
