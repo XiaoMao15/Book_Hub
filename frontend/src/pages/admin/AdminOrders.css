@@ -1,0 +1,45 @@
+/* Fungsi: gaya admin pesanan (pill filter status, kolom customer, tombol aksi status) */
+.status-filter { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem; animation: rise 0.5s var(--ease) both; }
+
+.status-filter button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1.5px solid var(--sand);
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  transition: all 0.3s var(--ease);
+}
+
+.status-filter button:hover { border-color: var(--sand-dark); color: var(--ink); }
+.status-filter button.is-active { border-color: var(--sand-dark); background: var(--sand-dark); color: var(--white); }
+
+.status-filter span {
+  min-width: 22px;
+  padding: 0 0.4rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.08);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.adm-order__head { grid-template-columns: 1.2fr 1.2fr auto 130px 24px; }
+.adm-order__customer p { font-weight: 600; }
+.adm-order__customer small { color: var(--ink-soft); font-size: 0.8rem; }
+.adm-order__total { text-align: right; }
+
+.adm-order__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin: 0 1.4rem 1.2rem;
+}
+
+@media (max-width: 900px) {
+  .adm-order__head { grid-template-columns: 1fr auto; }
+  .adm-order__customer,
+  .adm-order__total { grid-column: 1; text-align: left; }
+}

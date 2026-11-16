@@ -1,0 +1,84 @@
+/* Fungsi: gaya halaman admin buku (sel buku bercover, badge stok, form modal dengan pratinjau cover) */
+.adm-tools { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+
+.adm-search {
+  width: 260px;
+  padding: 0.6rem 1rem;
+  border: 1.5px solid transparent;
+  border-radius: 999px;
+  background: var(--white);
+  font: inherit;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.3s;
+}
+
+.adm-search:focus { outline: none; border-color: var(--sand-dark); }
+
+.book-cell { display: flex; align-items: center; gap: 0.8rem; }
+.book-cell img { width: 40px; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 6px; background: var(--sand); }
+.book-cell strong { display: block; }
+.book-cell small { color: var(--ink-soft); }
+
+.stock {
+  display: inline-block;
+  min-width: 36px;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.stock--ok { background: #e5eedb; color: #3f5e2a; }
+.stock--low { background: #f3ead2; color: #8a6d1f; }
+.stock--zero { background: #f8e3dd; color: #8f3524; }
+
+/* form modal */
+.book-form { display: grid; grid-template-columns: 180px 1fr; gap: 1.5rem; }
+
+.book-form__preview {
+  position: sticky;
+  top: 0;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border: 2px dashed var(--sand);
+  border-radius: 12px;
+  background: #faf8f3;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.book-form__preview img { width: 100%; height: 100%; object-fit: cover; animation: fadeIn 0.4s ease; }
+
+.book-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+
+.book-form select,
+.book-form textarea {
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--cream);
+  border-radius: 10px;
+  background: #faf8f3;
+  font: inherit;
+  color: var(--ink);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.book-form select:focus,
+.book-form textarea:focus {
+  outline: none;
+  border-color: var(--sand-dark);
+  box-shadow: 0 0 0 4px rgba(138, 130, 105, 0.15);
+}
+
+.book-form .field--error select,
+.book-form .field--error textarea { border-color: #c0533e; }
+
+@media (max-width: 700px) {
+  .book-form { grid-template-columns: 1fr; }
+  .book-form__preview { width: 140px; margin-inline: auto; position: static; }
+  .book-form__row { grid-template-columns: 1fr; }
+}

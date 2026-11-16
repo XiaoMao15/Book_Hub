@@ -12,8 +12,11 @@ import Cart from './pages/Cart';
 import Orders from './pages/Orders';
 import Placeholder from './pages/Placeholder';
 import Dashboard from './pages/admin/Dashboard';
-import ProtectedRoute from './components/ProtectedRoute';
+import AdminBooks from './pages/admin/AdminBooks';
 import Genres from './pages/admin/Genres';
+import AdminOrders from './pages/admin/AdminOrders';
+import ProtectedRoute from './components/ProtectedRoute';
+
 
 export default function App() {
   return (
@@ -52,8 +55,8 @@ export default function App() {
         }
       >
         <Route index element={<Dashboard />} />
-        <Route path="orders" element={<Placeholder title="Kelola Pesanan" />} />
-        <Route path="books" element={<Placeholder title="Kelola Buku" />} />
+        <Route path="orders" element={<AdminOrders />} />
+        <Route path="books" element={<AdminBooks />} />
         <Route path="genres" element={<Genres />} />
         <Route path="users" element={<Placeholder title="Daftar User" />} />
         <Route path="messages" element={<Placeholder title="Pesan Masuk" />} />
