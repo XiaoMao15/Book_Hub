@@ -14,6 +14,7 @@ export default function Footer() {
         <nav className="footer__links">
           <Link to="/">Home</Link>
           <Link to="/books">Book</Link>
+          <Link to="/about">About Us</Link>
           <Link to="/contact">Contact Us</Link>
         </nav>
         <p className="footer__copy">© {new Date().getFullYear()} Book.Hub. All rights reserved.</p>

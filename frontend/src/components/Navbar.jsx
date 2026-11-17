@@ -43,6 +43,7 @@ export default function Navbar() {
         <nav className="navbar__links">
           <NavLink to="/" end>Home</NavLink>
           <NavLink to="/books">Book</NavLink>
+          <NavLink to="/about">About Us</NavLink>
           <NavLink to="/contact">Contact Us</NavLink>
         </nav>
 

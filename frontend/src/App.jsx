@@ -17,6 +17,7 @@ import Genres from './pages/admin/Genres';
 import AdminUsers from './pages/admin/AdminUsers';
 import AdminMessages from './pages/admin/AdminMessages';
 import ProtectedRoute from './components/ProtectedRoute';
+import About from './pages/About';
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/books" element={<Books />} />
         <Route path="/books/:id" element={<BookDetail />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route
