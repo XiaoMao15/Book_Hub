@@ -1,0 +1,22 @@
+{
+  "name": "book.hub",
+  "version": "1.0.0",
+  "description": "Book.Hub adalah aplikasi toko buku online. Pengunjung bisa melihat katalog buku, mencari judul atau penulis, dan memfilter berdasarkan genre. Customer bisa memasukkan buku ke keranjang, checkout dengan COD, lalu memantau status pesanannya. Admin mengelola buku, genre, pesanan, user, dan pesan masuk lewat panel admin.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently -n BE,FE -c yellow,cyan --kill-others \"cd backend && php artisan serve\" \"cd frontend && npm run dev\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XiaoMao15/Book_Hub.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/XiaoMao15/Book_Hub/issues"
+  },
+  "homepage": "https://github.com/XiaoMao15/Book_Hub#readme",
+  "devDependencies": {
+    "concurrently": "^10.0.7"
+  }
+}
