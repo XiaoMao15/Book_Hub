@@ -1,9 +1,9 @@
-/* Fungsi: gaya halaman About Us (hero, angka koleksi, kartu nilai, langkah pemesanan) */
-.about { display: flex; flex-direction: column; gap: 3rem; }
+/* Fungsi: gaya halaman About Us (judul, latar belakang, kartu fitur) */
+.about { display: flex; flex-direction: column; gap: 3rem; padding-bottom: 2rem; }
 
 .about__hero { max-width: 720px; margin: 2rem auto 0; text-align: center; }
 .about__hero > * { animation: rise 0.8s var(--ease) both; }
-.about__hero h1 { margin-bottom: 1rem; animation-delay: 0.1s; font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.2; }
+.about__hero h1 { margin: 1rem 0; animation-delay: 0.1s; font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.2; }
 .about__hero p { color: var(--ink-soft); animation-delay: 0.2s; }
 
 .about__hero em {
@@ -25,28 +25,12 @@
   background: rgba(183, 176, 158, 0.45);
 }
 
-/* angka */
-.about__stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  overflow: hidden;
-  border-radius: 20px;
-  background: var(--white);
-  box-shadow: var(--shadow-sm);
-}
-
-.about__stats div { padding: 1.8rem 1rem; text-align: center; }
-.about__stats div + div { border-left: 1px solid var(--cream); }
-.about__stats strong { display: block; font-size: 2.4rem; line-height: 1.1; color: var(--sand-dark); }
-.about__stats span { color: var(--ink-soft); font-size: 0.9rem; }
-
-/* cerita */
+/* latar belakang */
 .about__story { max-width: 760px; margin-inline: auto; text-align: center; }
-.about__story h2,
-.about__steps h2 { margin-bottom: 0.8rem; font-size: 1.6rem; }
+.about__story h2 { margin-bottom: 0.8rem; font-size: 1.6rem; }
 .about__story p { color: var(--ink-soft); line-height: 1.9; }
 
-/* nilai */
+/* fitur */
 .about__values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
 
 .value {
@@ -75,23 +59,8 @@
 .value h3 { margin-bottom: 0.4rem; font-size: 1.1rem; }
 .value p { color: var(--ink-soft); font-size: 0.92rem; }
 
-/* langkah */
-.about__steps ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; list-style: none; }
-
-.about__steps li {
-  display: flex;
-  gap: 1rem;
-  padding: 1.4rem;
-  border: 1.5px dashed var(--sand);
-  border-radius: var(--radius);
-}
-
-.about__steps li span { font-size: 1.6rem; font-weight: 700; color: var(--sand); }
-.about__steps h3 { font-size: 1rem; }
-.about__steps p { color: var(--ink-soft); font-size: 0.9rem; }
+.about__back { text-align: center; }
 
 @media (max-width: 860px) {
-  .about__values,
-  .about__steps ol { grid-template-columns: 1fr; }
-  .about__stats strong { font-size: 1.8rem; }
+  .about__values { grid-template-columns: 1fr; }
 }
